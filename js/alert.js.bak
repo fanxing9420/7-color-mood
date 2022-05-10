@@ -1,0 +1,21 @@
+    function LoadDivs(flg) {
+        var s = null;
+        document.getElementById("loadDiv").style.display = flg == true ? "block" : "none";      
+ 
+        if (flg) {
+ 
+            var index = 0;
+            var text = ["正在加载留言，请稍后哦～", "正在加载留言，请稍后哦～", "即将加载完毕～"];
+            s = setInterval(function () {
+                document.getElementById("loadText").innerText = text[index] || "正在加载留言，请稍后哦～";
+                index++;
+                if (index > text.length - 1) {
+                    index = 0;
+                }
+            }, 2000);
+        } else {
+            if (s != null && s != undefined) {
+                clearInterval(s);
+            }
+        }
+    }
